@@ -9,7 +9,7 @@ public interface UserRepository {
 
     User getUser(long id);
 
-    void createUser(User user);
+    User createUser(User user);
 
     void updateUser(long id, User user);
 

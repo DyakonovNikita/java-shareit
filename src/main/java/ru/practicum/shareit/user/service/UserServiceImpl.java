@@ -12,6 +12,8 @@ import java.util.Collection;
 @RequiredArgsConstructor
 @Service
 public class UserServiceImpl implements UserService {
+
+    private long userId;
     private final UserRepository userRepository;
     private final UserMapper userMapper;
 
@@ -28,8 +30,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void createUser(UserDto userDto) {
-        userRepository.createUser(userMapper.toUser(userDto));
+    public UserDto createUser(UserDto userDto) {
+        User user = userMapper.toUser(userDto);
+        user.setId(getNewId());
+        return userMapper.toUserDto(userRepository.createUser(user));
     }
 
     @Override
@@ -40,5 +44,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(long id) {
         userRepository.deleteUser(id);
+    }
+
+    private long getNewId() {
+        return ++userId;
     }
 }

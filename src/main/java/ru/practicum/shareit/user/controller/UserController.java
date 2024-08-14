@@ -17,49 +17,28 @@ public class UserController {
 
     @GetMapping
     public ResponseEntity<?> getAllUsers() {
-        try {
-            return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
     }
 
     @GetMapping("/{userId}")
     public ResponseEntity<?> getUser(@PathVariable final long userId) {
-        try {
-            return new ResponseEntity<>(userService.getUser(userId), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        return new ResponseEntity<>(userService.getUser(userId), HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<?> createUser(@RequestBody final UserDto userDto) {
-        try {
-            userService.createUser(userDto);
-            return new ResponseEntity<>(HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+        return new ResponseEntity<>(userService.createUser(userDto), HttpStatus.CREATED);
     }
 
     @PatchMapping("/{userId}")
     public ResponseEntity<?> updateUser(@PathVariable final long userId, @RequestBody final UserDto userDto) {
-        try {
-            userService.updateUser(userId, userDto);
-            return new ResponseEntity<>(HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+        userService.updateUser(userId, userDto);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("/{userId}")
     public ResponseEntity<?> deleteUser(@PathVariable final long userId) {
-        try {
-            userService.deleteUser(userId);
-            return new ResponseEntity<>(HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+        userService.deleteUser(userId);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
