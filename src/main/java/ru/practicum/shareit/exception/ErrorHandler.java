@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import ru.practicum.shareit.user.exception.IncorrectEmailException;
 import ru.practicum.shareit.user.exception.UserAlreadyExistException;
 
 
@@ -18,8 +19,14 @@ public class ErrorHandler {
 
     @ExceptionHandler
     @ResponseStatus(HttpStatus.CONFLICT)
-    public ErrorResponse handleValidateException(final UserAlreadyExistException e) {
+    public ErrorResponse handleUserAlreadyExist(final UserAlreadyExistException e) {
         return new ErrorResponse(e.getMessage(), "Ошибка валидации");
+    }
+
+    @ExceptionHandler
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorResponse handleIncorrectEmail(final IncorrectEmailException e) {
+        return new ErrorResponse(e.getMessage(), "Некорректный email");
     }
 
 
