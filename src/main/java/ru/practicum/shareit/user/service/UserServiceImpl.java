@@ -10,6 +10,7 @@ import ru.practicum.shareit.user.model.User;
 import ru.practicum.shareit.user.repository.UserJpaRepository;
 
 import java.util.Collection;
+import java.util.Objects;
 
 @RequiredArgsConstructor
 @Service
@@ -70,7 +71,7 @@ public class UserServiceImpl implements UserService {
 
         if (userRepository.findAll()
                 .stream()
-                .anyMatch(u -> u.getEmail().equals(user.getEmail()) && user.getId() != u.getId())) {
+                .anyMatch(u -> u.getEmail().equals(user.getEmail()) && !Objects.equals(user.getId(), u.getId()))) {
             throw new UserAlreadyExistException("Пользователь с таким email уже существует");
         }
     }
