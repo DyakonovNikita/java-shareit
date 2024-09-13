@@ -12,7 +12,6 @@ import ru.practicum.shareit.user.service.UserService;
 @RestController
 @RequestMapping(path = "/users")
 public class UserController {
-
     private final UserService userService;
 
     @GetMapping
