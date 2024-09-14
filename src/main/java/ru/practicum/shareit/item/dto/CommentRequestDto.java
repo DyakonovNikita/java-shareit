@@ -6,8 +6,8 @@ import lombok.Data;
 @Data
 @Builder(toBuilder = true)
 public class CommentRequestDto {
-    Long id;
-    String text;
-    String authorName;
-    Long itemId;
+    private Long id;
+    private String text;
+    private String authorName;
+    private Long itemId;
 }

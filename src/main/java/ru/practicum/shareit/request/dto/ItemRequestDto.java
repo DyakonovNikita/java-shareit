@@ -1,7 +1,7 @@
 package ru.practicum.shareit.request.dto;
 
 import lombok.Data;
-import ru.practicum.shareit.user.model.User;
+import ru.practicum.shareit.user.dto.UserDto;
 
 import java.time.LocalDateTime;
 
@@ -9,6 +9,6 @@ import java.time.LocalDateTime;
 public class ItemRequestDto {
     private long id;
     private String description;
-    private User requester;
+    private UserDto requester;
     private LocalDateTime created;
 }

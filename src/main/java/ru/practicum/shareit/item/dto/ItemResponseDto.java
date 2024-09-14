@@ -11,12 +11,12 @@ import java.util.List;
 @Builder(toBuilder = true)
 @AllArgsConstructor
 public class ItemResponseDto {
-    Long id;
-    String name;
-    String description;
-    Boolean available;
-    BookingItemResponseDto lastBooking;
-    BookingItemResponseDto nextBooking;
-    Long requestId;
-    List<CommentResponseDto> comments;
+    private Long id;
+    private String name;
+    private String description;
+    private Boolean available;
+    private BookingItemResponseDto lastBooking;
+    private BookingItemResponseDto nextBooking;
+    private Long requestId;
+    private List<CommentResponseDto> comments;
 }
