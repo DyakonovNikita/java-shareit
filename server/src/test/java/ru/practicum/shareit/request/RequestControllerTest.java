@@ -14,6 +14,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import ru.practicum.shareit.item.dto.ItemRequestDto;
 import ru.practicum.shareit.request.dto.RequestDtoRequest;
 import ru.practicum.shareit.request.dto.RequestDtoResponse;
+import ru.practicum.shareit.user.UserMapper;
 import ru.practicum.shareit.user.model.User;
 
 import java.nio.charset.StandardCharsets;
@@ -68,7 +69,7 @@ class RequestControllerTest {
 				1L,
 				"Пила",
 				LocalDateTime.now(),
-				user,
+				UserMapper.mapToUserDto(user),
 				Set.of(item)
 		);
 	}

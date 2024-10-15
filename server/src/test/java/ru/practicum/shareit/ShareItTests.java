@@ -457,9 +457,7 @@ public class ShareItTests {
 		Long ownerId = userDto.getId();
 		Long bookerId = userDto1.getId();
 		User owner = UserMapper.mapToUser(userDto);
-		User booker = UserMapper.mapToUser(userDto1);
 		ItemDto itemDto = itemController.add(ownerId, screwDriver);
-		Item item = ItemMapper.mapToItem(itemDto, owner, null);
 		bookingController.add(bookerId, bookingItem1Future);
 
 		Optional<BookingDtoResponse> bookingOptional =
@@ -470,8 +468,8 @@ public class ShareItTests {
 						LocalDateTime.of(2030, 1, 2, 20, 11, 11))
 				.hasFieldOrPropertyWithValue("end",
 						LocalDateTime.of(2030, 2, 1, 1, 1, 1))
-				.hasFieldOrPropertyWithValue("booker", booker)
-				.hasFieldOrPropertyWithValue("item", item)
+				.hasFieldOrPropertyWithValue("booker", userDto1)
+				.hasFieldOrPropertyWithValue("item", itemDto)
 				.hasFieldOrPropertyWithValue("status", BookingStatus.WAITING));
 
 	}
@@ -483,9 +481,7 @@ public class ShareItTests {
 		Long ownerId = userDto.getId();
 		Long bookerId = userDto1.getId();
 		User owner = UserMapper.mapToUser(userDto);
-		User booker = UserMapper.mapToUser(userDto1);
 		ItemDto itemDto = itemController.add(ownerId, screwDriver);
-		Item item = ItemMapper.mapToItem(itemDto, owner, null);
 		bookingController.add(bookerId, bookingItem1Future);
 
 		Optional<BookingDtoResponse> bookingOptional =
@@ -496,8 +492,8 @@ public class ShareItTests {
 						LocalDateTime.of(2030, 1, 2, 20, 11, 11))
 				.hasFieldOrPropertyWithValue("end",
 						LocalDateTime.of(2030, 2, 1, 1, 1, 1))
-				.hasFieldOrPropertyWithValue("booker", booker)
-				.hasFieldOrPropertyWithValue("item", item)
+				.hasFieldOrPropertyWithValue("booker", userDto1)
+				.hasFieldOrPropertyWithValue("item", itemDto)
 				.hasFieldOrPropertyWithValue("status", BookingStatus.WAITING));
 
 	}
@@ -577,9 +573,7 @@ public class ShareItTests {
 		Long ownerId = userDto.getId();
 		Long bookerId = userDto1.getId();
 		User owner = UserMapper.mapToUser(userDto);
-		User booker = UserMapper.mapToUser(userDto1);
 		ItemDto itemDto = itemController.add(ownerId, screwDriver);
-		Item item = ItemMapper.mapToItem(itemDto, owner, null);
 		BookingDtoResponse bookingFirst = bookingController.add(bookerId, bookingItem1Future);
 		Long bookingId = bookingFirst.getId();
 		bookingController.approve(ownerId, bookingId, true);
@@ -593,8 +587,8 @@ public class ShareItTests {
 						LocalDateTime.of(2030, 1, 2, 20, 11, 11))
 				.hasFieldOrPropertyWithValue("end",
 						LocalDateTime.of(2030, 2, 1, 1, 1, 1))
-				.hasFieldOrPropertyWithValue("booker", booker)
-				.hasFieldOrPropertyWithValue("item", item)
+				.hasFieldOrPropertyWithValue("booker", userDto1)
+				.hasFieldOrPropertyWithValue("item", itemDto)
 				.hasFieldOrPropertyWithValue("status", BookingStatus.WAITING));
 
 	}
@@ -606,9 +600,7 @@ public class ShareItTests {
 		Long ownerId = userDto.getId();
 		Long bookerId = userDto1.getId();
 		User owner = UserMapper.mapToUser(userDto);
-		User booker = UserMapper.mapToUser(userDto1);
 		ItemDto itemDto = itemController.add(ownerId, screwDriver);
-		Item item = ItemMapper.mapToItem(itemDto, owner, null);
 		BookingDtoResponse bookingFirst = bookingController.add(bookerId, bookingItem1Future);
 		Long bookingId = bookingFirst.getId();
 		bookingController.approve(ownerId, bookingId, false);
@@ -622,8 +614,8 @@ public class ShareItTests {
 						LocalDateTime.of(2030, 1, 2, 20, 11, 11))
 				.hasFieldOrPropertyWithValue("end",
 						LocalDateTime.of(2030, 2, 1, 1, 1, 1))
-				.hasFieldOrPropertyWithValue("booker", booker)
-				.hasFieldOrPropertyWithValue("item", item)
+				.hasFieldOrPropertyWithValue("booker", userDto1)
+				.hasFieldOrPropertyWithValue("item", itemDto)
 				.hasFieldOrPropertyWithValue("status", BookingStatus.WAITING));
 
 	}
@@ -635,9 +627,7 @@ public class ShareItTests {
 		Long ownerId = userDto.getId();
 		Long bookerId = userDto1.getId();
 		User owner = UserMapper.mapToUser(userDto);
-		User booker = UserMapper.mapToUser(userDto1);
 		ItemDto itemDto = itemController.add(ownerId, screwDriver);
-		Item item = ItemMapper.mapToItem(itemDto, owner, null);
 		BookingDtoResponse bookingFirst = bookingController.add(bookerId, bookingItem1Future);
 		Long bookingId = bookingFirst.getId();
 		bookingController.approve(ownerId, bookingId, false);
@@ -650,8 +640,8 @@ public class ShareItTests {
 						LocalDateTime.of(2030, 1, 2, 20, 11, 11))
 				.hasFieldOrPropertyWithValue("end",
 						LocalDateTime.of(2030, 2, 1, 1, 1, 1))
-				.hasFieldOrPropertyWithValue("booker", booker)
-				.hasFieldOrPropertyWithValue("item", item)
+				.hasFieldOrPropertyWithValue("booker", userDto1)
+				.hasFieldOrPropertyWithValue("item", itemDto)
 				.hasFieldOrPropertyWithValue("status", BookingStatus.WAITING));
 
 	}
@@ -663,9 +653,7 @@ public class ShareItTests {
 		Long ownerId = userDto.getId();
 		Long bookerId = userDto1.getId();
 		User owner = UserMapper.mapToUser(userDto);
-		User booker = UserMapper.mapToUser(userDto1);
 		ItemDto itemDto = itemController.add(ownerId, screwDriver);
-		Item item = ItemMapper.mapToItem(itemDto, owner, null);
 		BookingDtoResponse bookingFirst = bookingController.add(bookerId, bookingItem1Future);
 		Long bookingId = bookingFirst.getId();
 		bookingController.approve(ownerId, bookingId, true);
@@ -679,8 +667,8 @@ public class ShareItTests {
 						LocalDateTime.of(2030, 1, 2, 20, 11, 11))
 				.hasFieldOrPropertyWithValue("end",
 						LocalDateTime.of(2030, 2, 1, 1, 1, 1))
-				.hasFieldOrPropertyWithValue("booker", booker)
-				.hasFieldOrPropertyWithValue("item", item)
+				.hasFieldOrPropertyWithValue("booker", userDto1)
+				.hasFieldOrPropertyWithValue("item", itemDto)
 				.hasFieldOrPropertyWithValue("status", BookingStatus.WAITING));
 	}
 

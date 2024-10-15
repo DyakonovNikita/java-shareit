@@ -35,7 +35,7 @@ public class Request {
 	private LocalDateTime created;
 
 	@OneToMany(mappedBy = "request")
-	Set<Item> items = new HashSet<>();
+	private Set<Item> items = new HashSet<>();
 
 	@Override
 	public boolean equals(Object o) {

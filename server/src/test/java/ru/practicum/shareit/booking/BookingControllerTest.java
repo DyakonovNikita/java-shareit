@@ -14,7 +14,9 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import ru.practicum.shareit.booking.dto.BookingDtoRequest;
 import ru.practicum.shareit.booking.dto.BookingDtoResponse;
+import ru.practicum.shareit.item.ItemMapper;
 import ru.practicum.shareit.item.model.Item;
+import ru.practicum.shareit.user.UserMapper;
 import ru.practicum.shareit.user.model.User;
 
 import java.nio.charset.StandardCharsets;
@@ -77,8 +79,8 @@ class BookingControllerTest {
 				LocalDateTime.now(),
 				LocalDateTime.now().plusDays(1),
 				BookingStatus.WAITING,
-				item,
-				user);
+				ItemMapper.mapToItemDto(item, user.getId()),
+				UserMapper.mapToUserDto(user));
 	}
 
 	@Test

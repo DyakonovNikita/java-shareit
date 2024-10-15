@@ -5,7 +5,9 @@ import lombok.NoArgsConstructor;
 import ru.practicum.shareit.booking.dto.BookingDtoRequest;
 import ru.practicum.shareit.booking.dto.BookingDtoResponse;
 import ru.practicum.shareit.booking.model.Booking;
+import ru.practicum.shareit.item.ItemMapper;
 import ru.practicum.shareit.item.model.Item;
+import ru.practicum.shareit.user.UserMapper;
 import ru.practicum.shareit.user.model.User;
 
 import java.util.ArrayList;
@@ -30,8 +32,8 @@ public class BookingMapper {
 				booking.getStart(),
 				booking.getEnd(),
 				booking.getStatus(),
-				booking.getItem(),
-				booking.getBooker()
+				ItemMapper.mapToItemDto(booking.getItem(), booking.getBooker().getId()),
+				UserMapper.mapToUserDto(booking.getBooker())
 		);
 	}
 

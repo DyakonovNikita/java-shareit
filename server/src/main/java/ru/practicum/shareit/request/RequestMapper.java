@@ -7,6 +7,7 @@ import ru.practicum.shareit.item.model.Item;
 import ru.practicum.shareit.request.dto.RequestDtoRequest;
 import ru.practicum.shareit.request.dto.RequestDtoResponse;
 import ru.practicum.shareit.request.model.Request;
+import ru.practicum.shareit.user.UserMapper;
 import ru.practicum.shareit.user.model.User;
 
 import java.time.LocalDateTime;
@@ -39,7 +40,7 @@ public class RequestMapper {
 				request.getId(),
 				request.getDescription(),
 				request.getCreated(),
-				request.getUser(),
+				UserMapper.mapToUserDto(request.getUser()),
 				items
 		);
 	}
